@@ -1,0 +1,44 @@
+Institute some sort of argparse argument in order to call input/output file names /
+as well as set directory  
+
+>Set a global list/dictionary that establishes UMI as well as Randomers
+>Set a global list for alignment location as well
+
+Once argparse and global settings are made, open file and being to parse through said file
+
+
+	> Parse through file (by each individual read of SAM file)
+
+	> Be sure to establish regions of interest while parsing (i.e., call for just header / 
+	  line, seq line, etc.)
+	  
+	> Establish the CIGAR string and set alignment parameters 
+		
+		- factor in 'soft clipping' in this part of the script 
+			
+			> CIGAR indicates whether or not the starting position left most position or, 
+			depending on if soft clipped, then the position will start where alignment begins 
+	
+		- Establish an alignment parameter if 'soft clipping' is found
+	
+	> Post alignment, establish if the position has been seen/read through before hand begin
+	  a if/else statment
+	  	
+	  	- if position has not been read, add this position to the global list made above. 
+	  	
+	  		> do this by setting a return = True or False at end of if/else loop. 
+	
+	> Want to do the same thing as done with the alignment position for the UMI & Randomers as well
+	
+		- IF UMI/Randomers are found, add to global list made above. 
+			
+			> do this by setting a return = True/False at enf of if/else loop (same as above)
+
+		
+		
+	> Once each read has been parsed through for both alignment position as well as UMI/Randomers
+	  and they either are returned as True statements --> output the particular read to a new
+	  file, if not returned True, go onto the next read of the SAM file. 
+	
+	
+	
