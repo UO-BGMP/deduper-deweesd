@@ -24,9 +24,7 @@ An important part of writing code is reviewing code - both your own and other's.
 Does the proposed algorithm make sense to you? Can you follow the logic?
 Does the algorithm do everything it's supposed to do? (see part 1)
 Are proposed functions reasonable? Are they "standalone" pieces of code?
-You can find your assigned reviewees on Canvas. You can find your fellow students' repositories at
-
-github.com/uo-bgmp/deduper-<user>
+You can find your assigned reviewees on Canvas. You can find your fellow students' repositories at github.com/uo-bgmp/deduper-<user>
 Be sure to leave comments on their repositories by creating issues or by commenting on the pull request.
 
 ### Part 3
