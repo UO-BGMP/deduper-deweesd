@@ -1,0 +1,82 @@
+Set argparse argument in order to call input/output file names /
+as well as set directory  
+
+Functions
+
+
+def 'function name' (i.e., cig_finder)(cig_str_val, pos_of_aligned_read):
+
+	if soft_clip is present in read?
+
+		correct said alignment_pos (pos_of_aligned_read)
+
+	else
+
+		ignore highlighted read
+
+	return changed_position that was aligned 
+
+
+def 'function name' (i.e., alignment check) (changed/corrected_alignment, list_of_aligned_reads):
+
+	look for changed/corrected alignment of said read in list_of_aligned_reads list
+
+	return True/False depending on what is found when parsing through each read
+
+def 'function name' (i.e., UMI_check_from_sequence(sequence_reads):
+
+	pull out UMI substring from the sequence reads
+
+	return UMI
+
+def UMI_check_in_UMI_List(UMI, list_of_UMI)
+
+	look for UMI's in list_of_UMI
+
+	return True/False depending on what is found when parsing through each read
+
+
+>Set a global dictionary that establishes UMI as keys and alignment positions with strandess
+info as the values 
+
+>set global list to use the UMIs in order to locate any sequencing error in file
+
+
+Once argparse and global settings are made, open file and being to parse through said file
+
+
+	> Parse through file (by each individual read of SAM file)
+
+	> Be sure to establish regions of interest while parsing (i.e., call for just header / 
+	  line, seq line, etc.)
+	  
+	> Establish the CIGAR string and set alignment parameters 
+		
+		- factor in 'soft clipping' in this part of the script 
+			
+			> CIGAR indicates whether or not the starting position left most position or, 
+			depending on if soft clipped, then the position will start where alignment begins 
+	
+		- Establish an alignment parameter if 'soft clipping' is found
+	
+	> Post alignment, establish if the position has been seen/read through before hand begin
+	  a if/else statment
+	  	
+	  	- if position has not been read, add this position to the global list made above. 
+	  	
+	  		> do this by setting a return = True or False at end of if/else loop. 
+	
+	> Want to do the same thing as done with the alignment position for the UMI & Randomers as well
+	
+		- IF UMI/Randomers are found, add to global list made above. 
+			
+			> do this by setting a return = True/False at end of if/else loop (same as above)
+
+		
+		
+	> Once each read has been parsed through for both alignment position as well as UMI/Randomers
+	  and they either are returned as True statements --> output the particular read to a new
+	  file, if not returned True, go onto the next read of the SAM file. 
+	
+	
+	
